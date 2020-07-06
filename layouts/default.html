@@ -5,13 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% seo %}
+    
+    <!--<link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">-->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="flex flex-col items-center max-w-4xl">
+    
+    <div class="w-full flex flex-row">
+      {% if site.logo %}
+        <div>
+          <img src="{{site.logo | relative_url}}" alt="Logo" class="px-4" />
+        </div>
+      {% endif %}
+      
+      <div>
+        <h1 class="font-bold text-lg">Little Ones London - Staff Handbook</h1>
+      </div>
+    </div>
+    
+    <div class="w-full">
+      {{ content }}
+    </div>
+    
     <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
